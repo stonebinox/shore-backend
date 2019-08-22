@@ -27,7 +27,7 @@ $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
       'driver' => 'pdo_mysql',
       'dbname' => 'heroku_8b6326a19fa3ac5',
       'user' => 'bce267e06beb0b',
-      'password' => 'bce267e06beb0b',
+      'password' => 'b4ae5a15',
       'host'=> "us-cdbr-iron-east-02.cleardb.net",
     )
 ));
