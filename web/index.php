@@ -7,19 +7,27 @@ require __DIR__.'/../config/prod.php';
 require __DIR__.'/../src/controllers.php';
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Credentials: true");
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
+header("Access-Control-Allow-Headers: Origin");
+header('P3P: CP="CAO PSA OUR"');
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+    exit;
+}
+
 $app->register(new Silex\Provider\MonologServiceProvider(), array(
     'monolog.logfile' => 'php://stderr',
 ));
-$app->register(new Silex\Provider\TwigServiceProvider(), array(
-    'twig.path' => __DIR__.'/views',
-));
+
 $app->register(new Silex\Provider\DoctrineServiceProvider(), array(
     'db.options' => array(
       'driver' => 'pdo_mysql',
-      'dbname' => 'database',
-      'user' => 'user',
-      'password' => 'password',
-      'host'=> "www.host.net",
+      'dbname' => 'heroku_8b6326a19fa3ac5',
+      'user' => 'bce267e06beb0b',
+      'password' => 'bce267e06beb0b',
+      'host'=> "us-cdbr-iron-east-02.cleardb.net",
     )
 ));
 $app->register(new Silex\Provider\SessionServiceProvider, array(
@@ -29,7 +37,7 @@ $app->before(function(Request $request) use($app){
     $request->getSession()->start();
 });
 $app->get("/",function() use($app){
-    return $app['twig']->render("index.html.twig");
+    return json_encode(['ok' => false, 'msg' => 'You do not have permission to access this page.']);
 });
 $app->run();
 ?>
