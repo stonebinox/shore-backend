@@ -4,7 +4,7 @@
  * 
  * @author Anoop Santhanam <anoop.santhanam@gmail.com>
  */
-class ProductType
+class ProductType extends Status
 {
     /**
      * The current object's product type ID

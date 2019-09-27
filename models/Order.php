@@ -23,6 +23,7 @@ class Order extends Product
      */
     public function __construct($orderId = false)
     {
+        $this->app = $GLOBALS['app'];
         if ($orderId && is_numeric($orderId)) {
             $this->_orderId = $orderId;
             $this->orderValid = $this->validateOrder();
@@ -50,5 +51,33 @@ class Order extends Product
         }
 
         return false;
+    }
+
+    /**
+     * Gets an order
+     * 
+     * @return array
+     */
+    public function getOrder(): array
+    {
+        $order = [];
+
+        if ($this->orderValid) {
+            $orderId = $this->_orderId;
+            $app = $this->app;
+            $query = "SELECT * FROM order_master WHERE idorder_master = '$orderId'";
+            if (!empty($query = $app['db']->fetchAssoc($query))) {
+                $order_item_model = new OrderItem();
+                $orderItems = $order_item_model->getOrderItems($orderId);
+
+                if (!empty($orderItems)) {
+                    $query['order_items'] = $orderItems;
+                }
+
+                $order = $query;
+            }
+        }
+
+        return $order;
     }
 }

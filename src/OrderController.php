@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
+require "../models/Status.php";
 require "../models/ProductType.php";
 require "../models/Product.php";
 require "../models/Order.php";
