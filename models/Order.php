@@ -40,13 +40,9 @@ class Order extends Product
         if ($this->_orderId) {
             $orderId = $this->_orderId;
             $app = $this->app;
-            $query = "SELECT product_master_idproduct_master FROM order_master WHERE deleted_at IS NULL AND idorder_master = '$orderId'";
+            $query = "SELECT idorder_master FROM order_master WHERE deleted_at IS NULL AND idorder_master = '$orderId'";
             if (!empty($query = $app['db']->fetchAssoc($query))) {
-                $productId = $query['product_master_idproduct_master'];
-                Product::__construct($productId);
-                if ($this->productValid) {
-                    return true;
-                }
+                return true;
             }
         }
 
