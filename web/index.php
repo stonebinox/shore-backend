@@ -11,6 +11,7 @@ $app = include __DIR__ . '/../src/app.php';
 require __DIR__ . '/../config/prod.php';
 require __DIR__ . '/../src/controllers.php';
 require __DIR__ . '/../src/ProductTypeController.php';
+require __DIR__ . '/../src/OrderController.php';
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
