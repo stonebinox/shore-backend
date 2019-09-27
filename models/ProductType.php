@@ -64,7 +64,7 @@ class ProductType extends Status
         $productType = [];
         $app = $this->app;
         if ($this->productTypeValid) {
-            $productTypeId = $this->productTypeId;
+            $productTypeId = $this->_productTypeId;
             $query = "SELECT * FROM product_type_master WHERE idproduct_type_master = '$productTypeId'";
             if (!empty($query = $app['db']->fetchAssoc($query))) {
                 $productType = $query;
