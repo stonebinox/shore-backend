@@ -24,7 +24,7 @@ $app->get(
 
         $order = $order_model->getOrder();
 
-        if (empty($order)) {
+        if (!empty($order)) {
             $response['ok'] = true;
             $response['msg'] = '';
             $response['data'] = $order;
