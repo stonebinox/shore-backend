@@ -55,6 +55,8 @@ class Feedback
      * 
      * @param array  $answers The array of answers
      * @param string $number  The user's phone number, default to ''
+     * 
+     * @return bool
      */
     public function addFeedback($answers, $number = ''): bool
     {
