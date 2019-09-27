@@ -27,7 +27,7 @@ class Feedback
         $this->app = $GLOBALS['app'];
         if ($feedbackId && is_numeric($feedbackId)) {
             $this->feedbackId = $feedbackId;
-            $this->feedbackValid = $this->verifyFeedback();
+            $this->feedbackValid = $this->validateFeedback();
         }
     }
 

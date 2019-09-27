@@ -9,7 +9,7 @@ class ProductType
     /**
      * The current object's product type ID
      */
-    private $productTypeId = null;
+    private $_productTypeId = null;
 
     /**
      * Flag to check if the current product type object is valid
@@ -28,7 +28,7 @@ class ProductType
     {
         $this->app = $GLOBALS['app'];
         if ($productTypeId && is_numeric($productTypeId)) {
-            $this->productTypeId = $productTypeId;
+            $this->_productTypeId = $productTypeId;
             $this->productTypeValid = $this->validateProductType();
         }
     }
@@ -40,8 +40,8 @@ class ProductType
      */
     public function validateProductType(): bool
     {
-        if ($this->productTypeId) {
-            $productTypeId = $this->productTypeId;
+        if ($this->_productTypeId) {
+            $productTypeId = $this->_productTypeId;
             $app = $this->app;
             $query = "SELECT idproduct_type_master FROM product_type_master WHERE idproduct_type_master = '$productTypeId' AND deleted_at IS NULL";
             if (!empty($query = $app['db']->fetchAssoc($query))) {
