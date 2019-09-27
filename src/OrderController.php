@@ -1,7 +1,6 @@
 <?php
-
 /**
- * Controller for product types
+ * Controller for orders
  * 
  * @author Anoop Santhanam <anoop.santhanam@gmail.com>
  */
@@ -13,19 +12,23 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 require "../models/ProductType.php";
+require "../models/Product.php";
+require "../models/Order.php";
+require "../models/OrderItem.php";
 
 $app->get(
-    "/producttypes",
-    function () use ($app) {
+    "/order/{orderId}",
+    function ($orderId) use ($app) {
         $response = ['ok' => false, 'msg' => 'You do not have permission to access this page.'];
 
-        $productType = new ProductType();
-        $productTypes = $productType->getProductTypes();
+        $order_model = new Order($orderId);
 
-        if (!empty($productTypes)) {
+        $order = $order_model->getOrder();
+
+        if (empty($order)) {
             $response['ok'] = true;
             $response['msg'] = '';
-            $response['data'] = $productTypes;
+            $response['data'] = $order;
         }
 
         return json_encode($response);
