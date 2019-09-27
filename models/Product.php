@@ -41,7 +41,7 @@ class Product extends ProductType
             $app = $this->app;
             $query = "SELECT product_type_master_idproduct_type_master FROM product_master WHERE deleted_at IS NULL AND idproduct_master = '$productId'";
             if (!empty($query = $app['db']->fetchAssoc($query))) {
-                $productTypeId = $query['idproduct_type_master'];
+                $productTypeId = $query['product_type_master_idproduct_type_master'];
                 ProductType::__construct($productTypeId);
                 if ($this->productTypeValid) {
                     return true;
