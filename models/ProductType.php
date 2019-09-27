@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Class file for product types, mapped to product_type_master table.
  * 
