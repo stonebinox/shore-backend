@@ -23,6 +23,8 @@ class ProductType
 
     /**
      * Constructor for setting up the product type object
+     * 
+     * @param mixed $productTypeId Optional product type ID
      */
     public function __construct($productTypeId = false)
     {
