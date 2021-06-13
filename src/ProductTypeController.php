@@ -12,8 +12,8 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-require "../models/Status.php";
-require "../models/ProductType.php";
+require __DIR__ . "/../models/Status.php";
+require __DIR__ . "/../models/ProductType.php";
 
 $app->get(
     "/producttypes",

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Controller for orders
  * 
@@ -11,9 +12,9 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-require "../models/Product.php";
-require "../models/Order.php";
-require "../models/OrderItem.php";
+require __DIR__ . "/../models/Product.php";
+require __DIR__ . "/../models/Order.php";
+require __DIR__ . "/../models/OrderItem.php";
 
 $app->get(
     "/order/{orderId}",
