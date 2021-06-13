@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Class file for order statuses, mapped to status_master table.
  * 
@@ -47,7 +48,7 @@ class Status
             if (!empty($query = $app['db']->fetchAssoc($query))) {
                 return true;
             }
-        } 
+        }
 
         return false;
     }
@@ -83,7 +84,7 @@ class Status
         $app = $this->app;
         $query = "SELECT idstatus_master FROM status_master WHERE deleted_at IS NULL ORDER BY idstatus_master ASC";
         $query = $app['db']->fetchAll($query);
-        
+
         foreach ($query as $row) {
             $statusId = $row['idstatus_master'];
             $this->__construct($statusId);

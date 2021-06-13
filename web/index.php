@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Main controller for project
  * 
@@ -12,8 +13,9 @@ require __DIR__ . '/../config/prod.php';
 require __DIR__ . '/../src/controllers.php';
 require __DIR__ . '/../src/ProductTypeController.php';
 require __DIR__ . '/../src/OrderController.php';
+require __DIR__ . '/../src/ZoneController.php';
+
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Credentials: true");
@@ -25,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 }
 
 $app->register(
-    new Silex\Provider\MonologServiceProvider(), 
+    new Silex\Provider\MonologServiceProvider(),
     array(
         'monolog.logfile' => 'php://stderr',
     )
@@ -35,11 +37,11 @@ $app->register(
     new Silex\Provider\DoctrineServiceProvider(),
     array(
         'db.options' => array(
-        'driver' => 'pdo_mysql',
-        'dbname' => 'heroku_8b6326a19fa3ac5',
-        'user' => 'bce267e06beb0b',
-        'password' => 'b4ae5a15',
-        'host'=> "us-cdbr-iron-east-02.cleardb.net",
+            'driver' => 'pdo_mysql',
+            'dbname' => 'heroku_8b6326a19fa3ac5',
+            'user' => 'bce267e06beb0b',
+            'password' => 'b4ae5a15',
+            'host' => "us-cdbr-iron-east-02.cleardb.net",
         )
     )
 );
@@ -70,4 +72,3 @@ $app->get(
 );
 
 $app->run();
-?>
