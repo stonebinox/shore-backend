@@ -17,10 +17,10 @@ $app->get(
     function (Request $request) use ($app) {
         $response = ['ok' => false, 'msg' => 'Something went wrong. Try again later.'];
 
-        if ($skinType = $request->get('skinType')) {
+        if ($zone = $request->get('zone')) {
             $validSkinType = true;
 
-            switch (strtolower(($skinType))) {
+            switch (strtolower(($zone))) {
                 case "face":
                     $skinTypes = ["oily", "dry", "combination"];
                     break;
