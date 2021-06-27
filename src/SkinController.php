@@ -18,7 +18,6 @@ $app->get(
         $response = ['ok' => false, 'msg' => 'Something went wrong. Try again later.'];
 
         if ($skinType = $request->get('skinType')) {
-            $skinTypes = [];
             $validSkinType = true;
 
             switch (strtolower(($skinType))) {
