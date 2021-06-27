@@ -14,6 +14,7 @@ require __DIR__ . '/../src/controllers.php';
 require __DIR__ . '/../src/ProductTypeController.php';
 require __DIR__ . '/../src/OrderController.php';
 require __DIR__ . '/../src/ZoneController.php';
+require __DIR__ . '/../src/SkinController.php';
 
 use Symfony\Component\HttpFoundation\Request;
 
